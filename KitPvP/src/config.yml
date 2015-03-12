@@ -1,0 +1,7 @@
+messages:
+    help:
+      command:
+        kits:
+        - '&bHelp for /kits command:'
+        - ' &e&o/kits &7- &8Get command help!'
+    noPermission: '&4You do not have permission to do that!'

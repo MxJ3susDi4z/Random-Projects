@@ -1,0 +1,8 @@
+name: KitPvP
+main: loonyrules.co.uk.random.kitpvp.Core
+version: 0.1 Alpha
+author: LoonyRules
+commands:
+    kits:
+      description: Main command for KitPvP plugin.
+      usage: /<command>
