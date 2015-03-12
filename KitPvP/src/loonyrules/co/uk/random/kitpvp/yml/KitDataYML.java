@@ -49,7 +49,7 @@ public class KitDataYML
 	    return customConfig;
 	}
 	
-	public void saveConfig()
+	public static void saveConfig()
 	{
 	    if (customConfig == null || customConfigFile == null)
 	    {

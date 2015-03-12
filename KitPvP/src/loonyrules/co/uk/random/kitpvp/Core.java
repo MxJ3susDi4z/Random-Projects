@@ -2,6 +2,8 @@ package loonyrules.co.uk.random.kitpvp;
 
 import loonyrules.co.uk.random.kitpvp.api.KitPvPAPI;
 import loonyrules.co.uk.random.kitpvp.commands.SlashKitsCommand;
+import loonyrules.co.uk.random.kitpvp.listeners.KitSignCreationListener;
+import loonyrules.co.uk.random.kitpvp.listeners.KitSignInteractEventListener;
 import loonyrules.co.uk.random.kitpvp.utils.Messages;
 import loonyrules.co.uk.random.kitpvp.yml.KitDataYML;
 
@@ -32,6 +34,12 @@ public class Core extends JavaPlugin
 		setConfig(getConfig());
 		setKitData(KitDataYML.getConfig());
 		setMessages(new Messages());
+		
+		getConfig().options().copyDefaults(true);
+		saveConfig();
+		getKitData().options().copyDefaults(true);
+		KitDataYML.saveConfig();
+		
 		regListeners();
 		regCommands();
 	}
@@ -44,7 +52,8 @@ public class Core extends JavaPlugin
 	
 	void regListeners()
 	{
-		
+		getPluginManagers().registerEvents(new KitSignCreationListener(), this);
+		getPluginManagers().registerEvents(new KitSignInteractEventListener(), this);
 	}
 	
 	void regCommands()
@@ -71,12 +80,12 @@ public class Core extends JavaPlugin
 		return bs;
 	}
 	
-	public static KitPvPAPI getAPI()
+	public KitPvPAPI getAPI()
 	{
 		return kitpvpAPI;
 	}
 	
-	public FileConfiguration getConfig()
+	public FileConfiguration getPluginConfig()
 	{
 		return config;
 	}
@@ -86,7 +95,7 @@ public class Core extends JavaPlugin
 		return kitData;
 	}
 	
-	public static Messages getMessages()
+	public Messages getMessages()
 	{
 		return messages;
 	}

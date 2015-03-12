@@ -4,4 +4,15 @@ messages:
         kits:
         - '&bHelp for /kits command:'
         - ' &e&o/kits &7- &8Get command help!'
-    noPermission: '&4You do not have permission to do that!'
+        - ' &e&o/kits list &7- &8List all kits!'
+        - ' &e&o/kits create <kit> &7- &8Create a new kit!'
+        - ' &e&o/kits delete <kit> &7- &8Delete a kit!'
+    noPermission: '&cYou do not have permission to do that!'
+    duplicatekit: '&cThe kit &7{kit} &calready exists.'
+    noKitFound: '&cThe kit &7{kit} &cdoes not exist.'
+    kitCreated: '&6The kit &7{kit} &6was created!'
+    kitDeleted: '&6The kit &7{kit} &6was deleted!'
+signs:
+    topline:
+      raw: '[Kit]'
+      coloured: '&6[Kit]'
