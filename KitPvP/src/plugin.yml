@@ -1,6 +1,6 @@
 name: PublicKitPvP
 main: loonyrules.co.uk.random.kitpvp.Core
-version: 0.1 Alpha
+version: 0.2 Alpha
 author: LoonyRules
 commands:
     kits:

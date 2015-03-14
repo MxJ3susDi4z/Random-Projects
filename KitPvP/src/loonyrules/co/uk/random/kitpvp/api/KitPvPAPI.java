@@ -96,7 +96,7 @@ public class KitPvPAPI
 		if(boots != null && boots.getType() != Material.AIR)
 		{
 			Core.getPlugin().getKitData().set("kitData." + string + ".boots.type", boots.getData().getItemTypeId() + ":" + boots.getData().getData());
-			if(boots.getEnchantments() != null && boots.getEnchantments().size() >0)
+			if(boots.getItemMeta().getDisplayName() == null)
 			{
 				Core.getPlugin().getKitData().set("kitData." + string + ".boots.name", boots.getType().toString());
 			} else Core.getPlugin().getKitData().set("kitData." + string + ".boots.name", boots.getItemMeta().getDisplayName());
@@ -186,7 +186,7 @@ public class KitPvPAPI
 				}
 				
 				helmetMeta = helmet.getItemMeta();
-				helmetMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".helmet.name")));
+				helmetMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".helmet.name").replace("{username}", p.getName())));
 				helmet.setItemMeta(helmetMeta);
 			}
 			//
@@ -212,7 +212,7 @@ public class KitPvPAPI
 				}
 				
 				chestplateMeta = chestplate.getItemMeta();
-				chestplateMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".chestplate.name")));
+				chestplateMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".chestplate.name").replace("{username}", p.getName())));
 				chestplate.setItemMeta(chestplateMeta);
 			}
 			//
@@ -238,14 +238,14 @@ public class KitPvPAPI
 				}
 				
 				leggingsMeta = leggings.getItemMeta();
-				leggingsMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".leggings.name")));
+				leggingsMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".leggings.name").replace("{username}", p.getName())));
 				leggings.setItemMeta(leggingsMeta);
 			}
 			//
 			
 			// Boots
 			String t4 = Core.getPlugin().getKitData().getString("kitData." + kit + ".boots.type");
-			if(t3 != null)
+			if(t4 != null)
 			{
 				String[] type4 = t4.split(":");
 				boots = new ItemStack(Material.getMaterial(Integer.parseInt(type4[0])));
@@ -264,7 +264,7 @@ public class KitPvPAPI
 				}
 				
 				bootsMeta = boots.getItemMeta();
-				bootsMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".boots.name")));
+				bootsMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + ".boots.name").replace("{username}", p.getName())));
 				boots.setItemMeta(bootsMeta);
 			}
 			//
@@ -297,7 +297,7 @@ public class KitPvPAPI
 						targetMeta = target.getItemMeta();
 						if(Core.getPlugin().getKitData().getString("kitData." + kit + "." + i + ".name") != null)
 						{
-							targetMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + "." + i + ".name")));
+							targetMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', Core.getPlugin().getKitData().getString("kitData." + kit + "." + i + ".name").replace("{username}", p.getName())));
 						}
 						target.setItemMeta(targetMeta);
 						p.getInventory().setItem(i, target);
