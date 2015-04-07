@@ -1,0 +1,8 @@
+name: LoonyStaffScoreboard
+main: loonyrules.co.uk.loonystaffscoreboard.LoonyStaffScoreboardCore
+version: 0.1 Alpha
+author: LoonyRules
+commands:
+    lss:
+      description: Help for LoonyStaffScoreboard plugin!
+      usage: /<command>

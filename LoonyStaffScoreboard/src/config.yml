@@ -1,0 +1,6 @@
+staff: []
+scoreboard:
+    enabled: true
+    onlineOnly: true
+    title: '&6Online Staff'
+    timer: 15
